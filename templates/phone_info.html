@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{% static 'phone/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'phone/css/tablestyle.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <h1>{{title}}</h1>
+  <div class="table-1">
+    <table>
+      <tbody>
+        <tr>
+          <th>MOBILE NUMBER</th>
+          <th>SERVICE PROVIDER</th>
+          <th>LOCATION</th>
+        </tr>
+        <tr>
+          <td data-th="Block">{{ phone_number }}</td>
+          {% if phone_carrier %}
+          <td data-th="Element">{{ phone_carrier }}</td>
+
+          {% else %}
+          <td data-th="Element">Carrier...</td>
+          {% endif %}
+          <td data-th="Modifier">{{ phone_location }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="{{ map_link }}" class="btn btn-primary" target="_blank">Click here to view location on google map</a>
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

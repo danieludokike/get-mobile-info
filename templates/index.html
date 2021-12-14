@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Phone Number Tracer</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Get info about a mobile number</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="text-center">
+        <h1 style="margin-bottom: 50px;">Hello, world!</h1>
+  
+        {% if messages %} {% for msg in messages %}
+        <div class="alert alert-danger text-center" role="alert">
+          {{ msg }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        <form class="text-center" action="{% url 'track_phone' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="phone_number" class="sr-only">Enter mobile number</label>
+            <input type="text" name="phone_number" class="form-control" placeholder="Mobile number Eg (+234**********)">
+          </div>
+          <button type="submit" class="btn btn-primary mb-2">Submit now</button>
+        </form>
+      </div>
+      <div class="container">
+        <h1 class="display-4">How it works</h1>
+        <p class="lead">Enter the mobile number with country code and don't include spaces*</p>
+        <p class="lead text-warning">This is for educational purposes only!</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
