@@ -59,3 +59,7 @@ def track_phone_view(request):
         }
         return render(request, template, context)
     return redirect("<h1 style='color: red;'>Only post request can be handled</h1>")
+
+
+def input_view(request):
+    return render(request, "input.html", {"values": [1, 2, 3, 4, 5, 6, 7]})
